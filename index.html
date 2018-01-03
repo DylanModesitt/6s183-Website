@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>6s183</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/the.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="#">6s183</a>
+  </nav>
+  
+  <main role="main" id="app" class="container">
+      <div class="row">
+          <div class="col-12">
+              <h1>Developing iOS 11 Apps with Swift</h1>
+              <p><a href="http://dylanmodesitt.com">Dylan Modesitt</a> and <a href="http://wcaruso.com">William Caruso</a></p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-12">
+              <p>
+                  This is the class website for an MIT IAP course in developing iOS 11 Apps with Swift.
+              </p>
+          </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+          <div class="col-12 col-md-6 bd-sidebar">
+
+              <h3>General</h3>
+              <ul class="list-unstyled">
+                  <li v-for="resource in generalResources"><a href="resource.url"> {{ resource.title }}</a></li>
+              </ul>
+
+              <h3>Readings</h3>
+              <ul class="list-unstyled">
+                  <li v-for="reading in readings"><a href="reading.url"> {{ reading.title }}</a></li>
+              </ul>
+          </div>
+          <div class="col-12 col-md-6">
+              <h3>Announcements</h3>
+              <hr>
+              <div class="announcement" v-for="announcement in announcements">
+                  <h4>{{ announcement.title }}</h4>
+                  <p><b>{{ announcement.date }}</b></p>
+                  <p v-html="announcement.message"></p>
+                  <hr>
+              </div>
+          </div>
+      </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+  <script>
+      var app = new Vue({
+          el: '#app',
+          data: {
+              announcements: [
+                  {
+                      title: '6.s183 Materials Are Under Developement',
+                      date: 'January 3rd, 2018',
+                      message: 'Check back later to see the fully developed class materials! If you need to contact ' +
+                      'the class staff you can send an email to <a href="mailto:6s183-staff@mit.edu"> 6s183 staff.</a>'
+                  }
+              ],
+              readings: [
+                  {
+                      url: 'https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html',
+                      title: 'Apple\'s Introduction to the Swift Language'
+                  }
+              ],
+              generalResources: [
+                  {
+                      url: '',
+                      title: 'Getting Started'
+                  },
+                  {
+                      url: '',
+                      title: 'Introduction to XCode'
+                  }
+              ]
+          }
+      })
+  </script>
+
+</body>
+</html>
