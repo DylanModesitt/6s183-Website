@@ -14,7 +14,17 @@
 <body>
 
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
-      <a class="navbar-brand" href="#">6s183</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">6s183</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+    </div>
   </nav>
 
   <main role="main" id="app" class="container">
@@ -88,6 +98,10 @@
                   {
                       url: './getting-started.html',
                       title: 'Getting Started'
+                  },
+                  {
+                      url: './history-of-ios.html',
+                      title: 'History of iOS'
                   },
                   {
                       url: '',

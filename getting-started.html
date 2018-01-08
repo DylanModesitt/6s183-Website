@@ -11,18 +11,40 @@
 <body>
 
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
-      <a class="navbar-brand" href="/">6s183</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">6s183</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+    </div>
   </nav>
 
   <main role="main" id="app" class="container">
       <div class="row">
-          <div class="col-12">
-              <h1>Getting Started</h1>
+          <div class="col-2">
+              <p><strong>Outline</strong></p>
+              <hr>
+              <p><a href="#gettingstarted">Getting Started</a></p>
+              <p><a href="#tools">Tools</a></p>
+              <p><a href="#downloads">Downloads</a></p>
+          </div>
+          <div class="col-10">
+              <h1 id="gettingstarted">Getting Started</h1>
               <p> This reading is meant to help you get started with the correct tools and basic knowledge to begin to develop iOS applications in the Swift programming language using Xcode. </p>
+              
               <br>
-              <h3>Tools</h3>
-              To develop iOS apps using the latest technologies in this class lessons, you need a Mac computer (macOS 10.11.5 or later) running the latest version of Xcode. Xcode includes all the features you need to design, develop, and debug an app. Unlike other platforms, like the web, there is little flexibility for the programming, construction, and deployment of native applications on iOS. Good thing that Apple's IDE, Xcode, is an excellent developer experience (for the most part). It also contains the iOS SDK, which extends Xcode to include the tools, compilers, and frameworks you need specifically for iOS development, <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Download</a> the latest version of Xcode on your Mac free from the App Store. 
-              </ul>
+              <h3 id="tools">Tools</h3>
+              <p>To develop iOS apps using the latest technologies in this class lessons, you need a Mac computer (macOS 10.11.5 or later) running the latest version of Xcode. Xcode includes all the features you need to design, develop, and debug an app. Unlike other platforms, like the web, there is little flexibility for the programming, construction, and deployment of native applications on iOS. Good thing that Apple's IDE, Xcode, is an excellent developer experience (for the most part). It also contains the iOS SDK, which extends Xcode to include the tools, compilers, and frameworks you need specifically for iOS development, <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Download</a> the latest version of Xcode on your Mac free from the App Store.</p>
+          
+              <br>
+              <h3 id="downloads">Downloads</h3>
+              <p>To develop iOS apps using the latest technologies in this class lessons, you need a Mac computer (macOS 10.11.5 or later) running the latest version of Xcode. Xcode includes all the features you need to design, develop, and debug an app. Unlike other platforms, like the web, there is little flexibility for the programming, construction, and deployment of native applications on iOS. Good thing that Apple's IDE, Xcode, is an excellent developer experience (for the most part). It also contains the iOS SDK, which extends Xcode to include the tools, compilers, and frameworks you need specifically for iOS development, <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Download</a> the latest version of Xcode on your Mac free from the App Store.</p>
+
           </div>
       </div>
       <br>
