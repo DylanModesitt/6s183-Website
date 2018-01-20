@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5d27a7ee-d428-4faf-b8d8-9a8379b96842" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/the.css" afterPath="$PROJECT_DIR$/assets/css/the.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture-1.html" afterPath="$PROJECT_DIR$/lecture-1.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,9 +42,10 @@
       <file leaf-file-name="lecture-1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lecture-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="100" column="63" lean-forward="false" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
+            <state relative-caret-position="15">
+              <caret line="176" column="25" lean-forward="false" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
               <folding>
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#1;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -56,8 +58,8 @@
       <file leaf-file-name="the.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/the.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="667">
+              <caret line="67" column="1" lean-forward="false" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -79,6 +81,8 @@
       <find>outline</find>
       <find>navbar-light bg-light</find>
       <find>50%</find>
+      <find>table</find>
+      <find>33</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -92,8 +96,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/navbar.vue" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/assets/css/the.css" />
         <option value="$PROJECT_DIR$/getting-started.html" />
+        <option value="$PROJECT_DIR$/assets/css/the.css" />
         <option value="$PROJECT_DIR$/lecture-1.html" />
       </list>
     </option>
@@ -281,12 +285,12 @@
       <option name="presentableId" value="Default" />
       <updated>1515010522641</updated>
       <workItem from="1515010523889" duration="5801000" />
-      <workItem from="1516203402699" duration="9111000" />
+      <workItem from="1516203402699" duration="10600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14912000" />
+    <option name="totallyTimeSpent" value="16401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -346,14 +350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/the.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getting-started.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-777">
@@ -362,11 +358,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/the.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="67" column="1" lean-forward="false" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lecture-1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="100" column="63" lean-forward="false" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
+        <state relative-caret-position="15">
+          <caret line="176" column="25" lean-forward="false" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
           <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#1;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />

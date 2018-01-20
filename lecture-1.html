@@ -63,8 +63,8 @@
                   </div>
               <h5>Grading</h5>
               <div class="row">
-                  <div class="col-sm-6">
-                      <table class="table text-center">
+                  <div class="col-sm-12">
+                      <table class="table text-center" style=" width: 50%;margin: 0px auto;float: none;">
                           <thead>
                           <tr>
                               <th>Grade</th>
@@ -88,7 +88,7 @@
                       </table>
                   </div>
               </div>
-
+                <br>
               <h3 id="history">A Brief History of iOS</h3>
               <p>The iPhone was first revealed by Steve Jobs on June 29, 2007 at Macworld in an epic presentation
                   that you should <a href="https://www.youtube.com/watch?v=MnrJzXM7a6o">watch here on YouTube</a>.
@@ -100,7 +100,7 @@
               <div class="text-center">
                 <img src="assets/images/evolution.jpg" width="60%">
               </div>
-
+                <br>
               <h5>Hardware</h5>
               <p>The iPhone has a capacitive touchscreen that's designed for a bare finger, or multiple fingers for
                   multi-touch sensing. It also contains a ton of sensors, here's a list: </p>
@@ -127,8 +127,12 @@
                 </p>
 
               <p></p>
+              <br>
               <h5>User Interface</h5>
-                <p>Like all good platforms, iOS has a set of great <a
+                <p>iOS is based upon direct manipulation. Interface control elements consist of sliders, switches,
+                    buttons and gestures such as swipe, tap, pinch, and reverse pinch. Like all good platforms, iOS
+                    has a
+                    set of great <a
                         href="https://developer.apple.com/ios/human-interface-guidelines/overview/themes/">Human
                     Interface Guidelines</a>. Check them out, and see how the principals both make sense and play
                     into your everyday experience with iOS. No need to read this in it's entirety, as a user a lot of
@@ -147,23 +151,66 @@
                   <li><a href="https://developer.apple.com/ios/human-interface-guidelines/controls/buttons/">Controls.</a> Initiate actions and convey information. Buttons, switches, text fields, and
                                  progress indicators are examples of controls.</li>
               </ul>
-
-              <img src="assets/images/bars.png" width="33%">
-              <img src="assets/images/views.png" width="33%">
-              <img src="assets/images/controls.png" width="33%">
-
-
-              <br>
+                <div class="text-center">
+                  <img src="assets/images/bars.png" width="30%">
+                  <img src="assets/images/views.png" width="30%">
+                  <img src="assets/images/controls.png" width="30%">
+                </div>
+              <div class="bd-callout bd-callout-info">
+                  <h6>Accessibility</h6>
+                  <p>iOS offers a great experience for users of Assistive Technologies and it is our responsibility as
+                      developers to implement Apple's UIAccessibility protocols (which is very easy if we stick to
+                      UIKit) to make our apps accessible.</p>
+              </div>
               <hr>
               <a style="font-size:10px;" href="https://en.wikipedia.org/wiki/IPhone">-
                   https://en.wikipedia.org/wiki/IPhone</a><br>
               <a style="font-size:10px;" href="https://www.theverge.com/2011/12/13/2612736/ios-history-iphone-ipad">-
                   https://www.theverge.com/2011/12/13/2612736/ios-history-iphone-ipad</a><br>
               <a style="font-size:10px;" href="https://www.pinterest.com/pin/706291154033496539/">- https://www.pinterest.com/pin/706291154033496539/</a>
+
               <br>
               <br>
               <h3 id="components">Platform Components</h3>
-              <p>These lecture notes will be posted sooner to mondays lecture.</p>
+              <div class="row">
+                  <div class="col-sm-6">
+                      <h5>Tools</h5>
+                      <ul>
+                          <li>Xcode 9</li>
+                          <li>Instruments</li>
+                      </ul>
+                      <h5>Languages</h5>
+                      <ul>
+                          <li>Objective-C</li>
+                          <li>Swift 4</li>
+                      </ul>
+                      <h5>Frameworks</h5>
+                      <ul>
+                          <li>Foundation</li>
+                          <li>UIKit</li>
+                          <li>Core Motion</li>
+                          <li>Map Kit</li>
+                          <li>Core ML</li>
+                          <li>etc...</li>
+                      </ul>
+                      <p>Check out
+                          <a href="https://developer.apple.com/documentation/">Apple's Documentation</a> for a full
+                          list.</p>
+
+                  </div>
+                  <div class="col-sm-6">
+                      <h5>Design Strategy: Model View Controller</h5>
+                      <p>The Model View Controller paradigm:</p>
+                      <div class="text-center">
+                          <img src="assets/images/mvc.png" width="95%">
+                      </div>
+                      <br>
+                      <p>The realistic Coaco MVC relationship</p>
+                      <div class="text-center">
+                        <img src="assets/images/coaco_mvc.png" width="95%">
+                      </div>
+                  </div>
+              </div>
               <br>
               <h3 id="xcode">Introduction to Xcode
                   <img src="assets/images/xcode.png" height="40px"/></h3>
