@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -236,13 +236,71 @@
               <p>Xcode offers a plethora of features including editors, Interface Builder, smart searching, source
                   control, the Assistant Editor, testing, debugging (LLDB), customization and so much more. We'll
                   walk through this complex interface together, and show you how to use various components to build
-                  apps. Here is just a quick overview of how we use a few different and important features:</p>
+                  apps. Here is just a quick overview:</p>
 
-              <br><h5>Editor</h5>
+              <br><h5>Anatomy of an Xcode Project</h5>
+              <p>Creating a new Xcode project is as easy as File → New → Project, and then selecting the appropriate
+              starter project. Xcode will automatically create the files you need to start with.</p>
+              <p><strong>Project Window</strong><br>
+              <div class="text-center">
+                  <img src="assets/images/anatomy.png" width="75%">
+              </div>
+              <br>
+              <ol>
+                  <li><strong>Navigator.</strong> Primary mechanism for controlling what you see in the main area of
+                      the project window. Navigator pane itself can display nine different sets of information
+                      represented by the nine icons across its top. You can also filter what you see here with the
+                      search feature.</li>
+                  <li><strong>Editor.</strong> This is where you get actual work done, reading and writing your
+                      code or designing the interface in a Storyboard. When using the <i>Assistant Editor</i>, you
+                      'll have a split-screen view of the two files, most often he Storyboard and a corresponding
+                      Controller or Class.</li>
+                  <li><strong>Utilities.</strong> Contains inspectors that provide information about the current
+                      selection or its settings; in some cases, these inspectors let you change those settings.</li>
+                  <li><strong>Debugger.</strong> This pane contains information related to lldb and shows the
+                      program state when using Breakpoints and contained the console where print and debug
+                      statements appear.</li>
+              </ol>
+              </p>
+              <p><strong>Project Files and Dependencies</strong><br>
+                  In the figure above, the <span style="font-family: Consolas;">MyFirstiOSApp</span> folder
+                  contains the raw code for our project. The Storyboard is our UI, and is on the same level as
+                  corresponding View Controllers and classes. Other files, such as Model Classes, will naturally
+                  appear in this level. The Info.plist, or information property list, file is a structured text file
+                  that contains essential configuration information for our project such as <i>Entitlements</i>.
+                  Products by convention holds an
+                  automatically generated reference to the
+                  built app.</p>
+              <p><strong>Target</strong><br>
+                  A target is a collection of parts along with rules and settings for how to build a product from
+                  them. It is a major determinant of how an app is built. Whenever you build, what you’re really
+                  building is a target. In our first app, there is only one target. But there could be more than one
+                  target, under certain circumstances. For example, you might want to write an app that can be built
+                  as an iPhone app or as an iPad app — two different apps that share a lot of the same code. So you
+                  might want one project containing two targets.
 
-              <br><h5>Interface Builder</h5>
+              </p>
+              <p><strong>Building the Project into an App</strong><br>
+                  To build a project is to compile its code and
+                  assemble the compiled code, together with various resources, into the actual app. Typically, if
+                  you want to know whether your code compiles and your project is consistently and correctly
+                  constructed, you’ll build the project (Product → Build). To run a project is to launch the built
+                  app, in the Simulator or on a connected device, first select the device in the drop down menu and
+                  then run the project (Product → Run -or- the big Play Button &#9654; in the upper
+                  left), which automatically builds first if necessary. If your app has errors, it won't be able to
+                  build and lldb (debugger) will throw what went wrong in the console.</p>
 
-              <br><h5>Assistant Editor</h5>
+              <div class="bd-callout bd-callout-info">
+                  Xcode contains TONS of keyboard and gesture shortcuts that you should learn to become a faster, more
+                  efficient
+                  developer. <a href="https://swifteducation.github.io/assets/pdfs/XcodeKeyboardShortcuts.pdf">Check
+                  out some common shortcuts here.</a>
+              </div>
+
+              <hr>
+              <a style="font-size:10px;" href="http://www.apeth.com/iOSBook/ch06.html">-
+                  http://www.apeth.com/iOSBook/ch06.html</a><br>
+
 
               <br><br><h3 id="swift">Introduction to Swift
                   <img src="assets/images/swift.png" height="40px"/></h3>
@@ -256,9 +314,10 @@
                           style="color: #C41A16">&quot;Hello, world!&quot;</span>)</pre></div>
               </div>
 
-            <br><h3 class="build">Building an iOS App</h3>
-              <p>Let's jump into iOS development together and learn by doing scratch. Together, we'll
-                  build a basic iOS application and introduce all the tools along the way. We'll go over the
+            <br><h3 id="build">Building an iOS App</h3>
+              <p>Let's jump into iOS development together and learn by doing. Together, we'll
+                  build a basic iOS application from scratch and introduce all the tools along the way. We'll go over
+                  the
                   following things
                   together:</p>
               <ul>
@@ -266,8 +325,7 @@
                   <li>Building a UI with Storyboard</li>
                   <li>The iOS Simulator (and uploading to a device)</li>
                   <li>print (outputting to the console using \() notation)</li>
-                  <li>Defining a class in Swift, including how to specify instance variables and methods (class vs
-                      struct)</li>
+                  <li>Defining a class in Swift, including how to specify instance variables and methods</li>
                   <li>Connecting properties (instance variables) from our Swift code to the UI (outlets)</li>
                   <li>Connecting UI elements to invoke methods in our Swift code (actions)</li>
                   <li>Accessing iOS documentation from our code</li>
