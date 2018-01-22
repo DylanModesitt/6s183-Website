@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/the.css">
+
+
+
 </head>
 <body>
 
@@ -322,6 +325,236 @@
                           style="color: #C41A16">&quot;Hello, world!&quot;</span>)</pre></div>
               </div>
 
+              Let's write some code in the playground to get used to swift!
+
+<br>
+<br>
+<p class="p1">import<span class="s1"> UIKit</span></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Constants and Variables:</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- declare constants with the "let" keyword</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- declare variables with the "var" keyword</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">let</span><span class="s1"> maximumNumberOfLoginAttempts = </span><span class="s3">10</span><span class="s1"> </span>// constant, read only, cannot be reassigned</p>
+<p class="p3"><span class="s2">var</span><span class="s1"> currentLoginAttempt = </span><span class="s3">0</span><span class="s1"> </span>// read and write, can be reassigned</p>
+<p class="p2"><br></p>
+<p class="p3">//maximumNumberOfLoginAttempts += 1</p>
+<p class="p5">currentLoginAttempt<span class="s1"> += </span><span class="s3">1</span></p>
+<p class="p2"><br></p>
+<p class="p3"><span class="s2">var</span><span class="s1"> x = </span><span class="s3">0.0</span><span class="s1">, y = </span><span class="s3">0.0</span><span class="s1">, z = </span><span class="s3">0.0</span><span class="s1"> </span>// tuple declaration</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Variables are strongly type</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- there is, however, type inference!</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">var</span> greeting: <span class="s4">String</span> = <span class="s5">"Hello"</span></p>
+<p class="p3">//greeting = 0</p>
+<p class="p3">//currentLoginAttempt = "A lot"</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Variable Names</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- the swift convention is camelCase</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- variable names can include almost any character</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p7"><span class="s2">let</span><span class="s1"> π = </span>3.14159</p>
+<p class="p6"><span class="s2">let</span> <span class="s6">你好</span> = <span class="s5">"</span><span class="s7">你好世界</span><span class="s5">"</span></p>
+<p class="p6"><span class="s2">let</span> <span class="s8">🐶🐮</span> = <span class="s5">"dogcow"</span></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Printing Variables</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- the print function</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- escaping variable values with \()</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p5"><span class="s9">print</span><span class="s1">(</span>greeting<span class="s1">)</span></p>
+<p class="p8"><span class="s9">print</span><span class="s1">(</span><span class="s10">greeting</span><span class="s1"> + </span>", World!"<span class="s1">)</span></p>
+<p class="p8"><span class="s9">print</span><span class="s1">(</span>"<span class="s1">\</span>(<span class="s10">greeting</span>), World!"<span class="s1">)</span></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Optionals and nil</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- nil is known by many names: null, None, nill, nata, notin'</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- strongly types regular variables cannot be nil</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- Optionals are a very common idea in swift</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- A wrapper around a value, allowing it to be nothing or something</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- denoted by the question mark</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p8"><span class="s2">var</span><span class="s1"> mit: </span><span class="s4">String</span><span class="s1"> = </span>"Massachusetts Institue of Technology"</p>
+<p class="p3">//mit = nil</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">var</span> ihtfp: <span class="s4">String</span>? = <span class="s2">nil</span></p>
+<p class="p8"><span class="s10">ihtfp</span><span class="s1"> = </span>"I have truly found paradise"</p>
+<p class="p8"><span class="s10">ihtfp</span><span class="s1"> = </span>"I hate this fucking place"</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">var</span> unwrapped_ihtfp: <span class="s4">String</span> = <span class="s10">ihtfp</span>!</p>
+<p class="p2"><br></p>
+<p class="p5">ihtfp<span class="s1"> = </span><span class="s2">nil</span></p>
+<p class="p3">//unwrapped_ihtfp = ihtfp!</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Optional Binding</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- you can use optional binding to find out whether or not</p>
+<p class="p3"><span class="Apple-converted-space">   </span>an optional contains a value, and if so, to make the value</p>
+<p class="p3"><span class="Apple-converted-space">   </span>avaliable</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3">*/</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">var</span> possibleNumber: <span class="s4">Int</span>? = <span class="s3">4</span></p>
+<p class="p3">//possibleNumber = nil</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">if</span> <span class="s2">let</span> actualNumber = <span class="s10">possibleNumber</span> {</p>
+<p class="p8"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s9">print</span><span class="s1">(</span>"The actual number (of type Int) is <span class="s1">\</span>(<span class="s1">actualNumber</span>)"<span class="s1">)</span></p>
+<p class="p6">}</p>
+<p class="p2"><br></p>
+<p class="p3">/* Optionals Continued:</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- optionals can also be implicitly unwrapped</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p8"><span class="s2">let</span><span class="s1"> assumedString: </span><span class="s4">String</span><span class="s1">! = </span>"An implicitly unwrapped optional string."</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Data Structures</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- the core of swift data stuctures are Classes, Structures, and Enumerations</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- similarities:</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- declaritive syntax</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- properties and functions</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- initializers</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- differences:</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- inhertiance</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- value type (struct, enum) vs Reference type (class)</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- Value (struct and enum)</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- copied when passed to a function as an argument</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- copied when assigned to a different variable</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- Immutable if assigned with the let keyword</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- any function that mutates a struct or enum must be marked with mutating</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- Reference</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- stored in the heap, and automatically reference counted</p>
+<p class="p3"><span class="Apple-converted-space">      </span>- constant pointers to the class with let can still mutate the inner state</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Enumerations */</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">enum</span> LightSaberColor {</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> red</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> blue</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> green</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> purple</p>
+<p class="p6">}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">enum</span> Direction {</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> north</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> east</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> west</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> south</p>
+<p class="p6">}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">public</span> <span class="s2">enum</span> HTTPMethod {</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> get</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">case</span> post</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">    </span></span>// a function in swift</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">public</span> <span class="s2">func</span> getHeaders() -&gt; [<span class="s4">String</span>: <span class="s2">Any</span>] {</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">switch</span> <span class="s2">self</span> {</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">case</span> .<span class="s11">get</span>:</p>
+<p class="p8"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">return</span><span class="s1"> [</span>"Content-Type"<span class="s1">: </span>"application/json"<span class="s1">]</span></p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">case</span> .<span class="s11">post</span>:</p>
+<p class="p8"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">return</span><span class="s1"> [</span>"Content-Type"<span class="s1">: </span>"application/json"<span class="s1">,</span></p>
+<p class="p8"><span class="s1"><span class="Apple-converted-space">                    </span></span>"Content-Payload"<span class="s1">: </span>"{\"key\":\"value\"}"<span class="s1">]</span></p>
+<p class="p6"><span class="Apple-converted-space">        </span>}</p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">    </span></span>// TODO computed properties</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">public</span> <span class="s2">var</span> name: <span class="s4">String</span> {</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">switch</span> <span class="s2">self</span> {</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">case</span> .<span class="s11">get</span>:</p>
+<p class="p6"><span class="Apple-converted-space">            </span><span class="s2">return</span> <span class="s5">"GET"</span></p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">case</span> .<span class="s11">post</span>:</p>
+<p class="p6"><span class="Apple-converted-space">            </span><span class="s2">return</span> <span class="s5">"POST"</span></p>
+<p class="p6"><span class="Apple-converted-space">        </span>}</p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6">}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Classes */</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">class</span> ForceSensitiveBeing {</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">var</span> lightSaberColor: <span class="s10">LightSaberColor</span>? = <span class="s2">nil</span></p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6">}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p5"><span class="s2">class</span><span class="s1"> Jedi: </span>ForceSensitiveBeing<span class="s1"> {</span></p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">init</span>(withLightSaberColor lsc: <span class="s10">LightSaberColor</span>) {</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">super</span>.<span class="s2">init</span>()</p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span>lightSaberColor<span class="s1"> = lsc</span></p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6">}</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">class</span> MaceWindu: <span class="s10">Jedi</span> {</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s2">override</span> <span class="s2">init</span>(withLightSaberColor lsc: <span class="s10">LightSaberColor</span>) {</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s2">super</span>.<span class="s2">init</span>(withLightSaberColor: lsc)</p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span>lightSaberColor<span class="s1"> = .</span><span class="s11">purple</span></p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p9"><span class="Apple-converted-space">    </span></p>
+<p class="p6">}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p3">/* Casting</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>- you can cast objects in swift with the as keyword</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- as? casts them as an optional</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- as! casts them as an implicitly unrapped optional (dont use)</p>
+<p class="p3"><span class="Apple-converted-space"> </span>- as? is almost always used with an if let!</p>
+<p class="p4"><span class="Apple-converted-space"> </span></p>
+<p class="p3"><span class="Apple-converted-space"> </span>*/</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">let</span> any: <span class="s2">Any</span>? = <span class="s3">4</span></p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s2">let</span> number: <span class="s4">Int</span>? = <span class="s10">any</span> <span class="s2">as</span>? <span class="s4">Int</span></p>
+<p class="p6"><span class="s2">let</span> number2: <span class="s4">Int</span> = <span class="s10">any</span> <span class="s2">as</span>! <span class="s4">Int</span></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p9"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+
             <br><h3 id="build">Building an iOS App</h3>
               <p>Let's jump into iOS development together and learn by doing. Together, we'll
                   build a basic iOS application from scratch and introduce all the tools along the way. We'll go over
@@ -361,6 +594,9 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/swift.min.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 </html>
