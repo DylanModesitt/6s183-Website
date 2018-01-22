@@ -56,12 +56,12 @@
 
               <h3>General</h3>
               <ul class="list-unstyled">
-                  <li v-for="resource in generalResources"><img><a :href="resource.url"> {{ resource.title }}</a></li>
+                  <li v-for="resource in generalResources"><a :href="resource.url">{{ resource.title }}</a></li>
               </ul>
 
               <h3>Readings</h3>
               <ul class="list-unstyled">
-                  <li v-for="reading in readings"><a :href="reading.url"> {{ reading.title }}</a></li>
+                  <li v-for="reading in readings"><a :href="reading.url">{{ reading.title }}</a></li>
               </ul>
           </div>
           <div class="col-12 col-md-6">
