@@ -71,28 +71,44 @@ main {
 
 
 
-
-p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #c42275; background-color: #ffffff}
-p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px Helvetica; background-color: #ffffff; min-height: 14.0px}
-p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #1e9421; background-color: #ffffff}
-p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #1e9421; background-color: #ffffff; min-height: 21.0px}
-p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #539aa4; background-color: #ffffff}
-p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #000000; background-color: #ffffff}
-p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #0435ff; background-color: #ffffff}
-p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #c81b13; background-color: #ffffff}
-p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #000000; background-color: #ffffff; min-height: 21.0px}
-p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #3c828b; background-color: #ffffff}
-span.s1 {color: #000000}
-span.s2 {color: #c42275}
-span.s3 {color: #0435ff}
-span.s4 {color: #703daa}
-span.s5 {color: #c81b13}
-span.s6 {font: 18.0px 'PingFang SC'}
-span.s7 {font: 18.0px 'PingFang SC'; color: #c81b13}
-span.s8 {font: 18.0px 'Apple Color Emoji'}
-span.s9 {color: #3e1e81}
-span.s10 {color: #539aa4}
-span.s11 {color: #31595d}
-span.s12 {color: #3c828b}
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #c42275; -webkit-text-stroke: #c42275; background-color: #ffffff}
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #1e9421; -webkit-text-stroke: #1e9421; background-color: #ffffff}
+p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #1e9421; -webkit-text-stroke: #1e9421; background-color: #ffffff; min-height: 21.0px}
+p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #539aa4; -webkit-text-stroke: #539aa4; background-color: #ffffff}
+p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #000000; -webkit-text-stroke: #000000; background-color: #ffffff}
+p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #0435ff; -webkit-text-stroke: #0435ff; background-color: #ffffff}
+p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #c81b13; -webkit-text-stroke: #c81b13; background-color: #ffffff}
+p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #000000; -webkit-text-stroke: #000000; background-color: #ffffff; min-height: 21.0px}
+p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 16.0px Menlo; color: #3c828b; -webkit-text-stroke: #3c828b; background-color: #ffffff}
+p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; background-color: #ffffff; min-height: 14.0px}
+p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #000000; background-color: #ffffff}
+p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #539aa4; background-color: #ffffff}
+p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #000000; background-color: #ffffff; min-height: 21.0px}
+p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #c81b13; background-color: #ffffff}
+p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #c42275; background-color: #ffffff}
+p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #000000} 
+span.s1 {font-kerning: none}
+span.s2 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+span.s3 {font-kerning: none; color: #c42275; -webkit-text-stroke: 0px #c42275}
+span.s4 {font-kerning: none; color: #0435ff; -webkit-text-stroke: 0px #0435ff}
+span.s5 {font-kerning: none; color: #703daa; -webkit-text-stroke: 0px #703daa}
+span.s6 {font-kerning: none; color: #c81b13; -webkit-text-stroke: 0px #c81b13}
+span.s7 {font: 16.0px 'PingFang SC'; font-kerning: none}
+span.s8 {font: 16.0px 'PingFang SC'; font-kerning: none; color: #c81b13; -webkit-text-stroke: 0px #c81b13}
+span.s9 {font: 16.0px 'Apple Color Emoji'; font-kerning: none}
+span.s10 {font-kerning: none; color: #3e1e81; -webkit-text-stroke: 0px #3e1e81}
+span.s11 {font-kerning: none; color: #539aa4; -webkit-text-stroke: 0px #539aa4}
+span.s12 {font-kerning: none; color: #31595d; -webkit-text-stroke: 0px #31595d}
+span.s13 {font-kerning: none; color: #3c828b; -webkit-text-stroke: 0px #3c828b}
+span.s14 {color: #c42275}
+span.s15 {color: #000000}
+span.s16 {color: #3e1e81}
+span.s17 {color: #703daa}
+span.s18 {color: #539aa4}
+span.s19 {color: #3c828b}
+span.s20 {color: #c81b13}
+span.s21 {background-color: #ffffff}
 
 

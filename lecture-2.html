@@ -45,10 +45,6 @@
           <div class="col-sm-10">
               <h2>2. Swift Deep Dive and Advanced Views</h2>
               <br>
-              <div class="alert alert-danger" role="alert">
-                  <strong>Oh snap!</strong> These notes are still under construction, check back soon and they'll be
-                  ready.
-              </div>
               <br>
               <h3 id="swift">Swift Deep Dive <img src="assets/images/swift.png" height="40px" style="    transform:
               rotate(45deg);"/></h3>
@@ -72,6 +68,74 @@
                   task or piece of functionality. The protocol can then be adopted by a class, structure, or
                   enumeration to provide an actual implementation of those requirements. Any type that satisfies the
                   requirements of a protocol is said to conform to that protocol.</p>
+
+
+              <p> Protocols are declared explicitly and hold method and property signatures that implementers 
+                  must fufill. They are similiar to Java Interfaces. Here we can see an example: </p>
+
+                  <br>
+                  <p class="p11"><br></p>
+                  <p class="p12"><span class="s14">protocol</span> ForceSensitiveBeing {</p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">func</span> useForce()</p>
+                  <p class="p12">}</p>
+                  <p class="p11"><br></p>
+                  <p class="p13"><span class="s14">class</span><span class="s15"> Jedi: </span>ForceSensitiveBeing<span class="s15"> {</span></p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">func</span> useForce() {</p>
+                  <p class="p15"><span class="s15"><span class="Apple-converted-space">        </span></span><span class="s16">print</span><span class="s15">(</span>"moving rocks"<span class="s15">)</span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span>}</p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p12">}</p>
+                  <p class="p11"><br></p>
+                  <p class="p13"><span class="s14">class</span><span class="s15"> Sith: </span>ForceSensitiveBeing<span class="s15"> {</span></p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">func</span> useForce() {</p>
+                  <p class="p15"><span class="s15"><span class="Apple-converted-space">        </span></span><span class="s16">print</span><span class="s15">(</span>"force choke!"<span class="s15">)</span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span>}</p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p12">}</p>
+                  <p class="p2"><span class="s1"><br>
+
+                  <p> The force sensitive being protocol declares that classes that conform to it must implement a method 
+                  called use force that takes in nothing and returns nothing. We can see clearly that the protocol does not
+                  give a body to the method, instead each of the classes or structures that conform to it must do that themselves. </p>
+
+                  <p> However, we will later see in fact that Swift allows protocols to have default implementations through extensions, allowing Swift to have a sort of multiple inheritance structure in some cases that can be very useful to exploit </p>
+
+                  <p> Furthermore, swift protocols can have properties as long as the protocol explicitly says what operations of the property are allowed (get/set), as in the following example</p>
+
+                  <p class="p16"><span class="s1"></span><br></p>
+                  <p class="p17">protocol<span class="s15"> Robot {</span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">var</span> name: <span class="s17">String</span> { <span class="s14">get</span> <span class="s14">set</span> }</p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">func</span> procreate() -&gt; <span class="s18">Robot</span></p>
+                  <p class="p12">}</p>
+                  <p class="p11"><br></p>
+                  <p class="p11"><br></p>
+                  <p class="p12"><span class="s14">class</span> HelperRobot: <span class="s18">Robot</span> {</p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">init</span>(withName nm: <span class="s17">String</span>) {</p>
+                  <p class="p12"><span class="Apple-converted-space">        </span><span class="s18">_name</span> = nm</p>
+                  <p class="p12"><span class="Apple-converted-space">    </span>}</p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">var</span> _name: <span class="s17">String</span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">var</span> name: <span class="s17">String</span> {</p>
+                  <p class="p12"><span class="Apple-converted-space">        </span><span class="s14">get</span> {</p>
+                  <p class="p12"><span class="Apple-converted-space">            </span><span class="s14">return</span> <span class="s18">_name</span></p>
+                  <p class="p12"><span class="Apple-converted-space">        </span>} <span class="s14">set</span> {</p>
+                  <p class="p15"><span class="s15"><span class="Apple-converted-space">            </span></span><span class="s16">print</span><span class="s15">(</span>"No, my name is sam"<span class="s15">)</span></p>
+                  <p class="p12"><span class="Apple-converted-space">        </span>}</p>
+                  <p class="p12"><span class="Apple-converted-space">    </span>}</p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p12"><span class="Apple-converted-space">    </span><span class="s14">func</span> procreate() -&gt; <span class="s18">Robot</span> {</p>
+                  <p class="p12"><span class="Apple-converted-space">        </span><span class="s14">return</span> <span class="s19">HelperRobot</span>(withName: <span class="s20">"</span>\<span class="s20">(</span><span class="s18">name</span><span class="s20">) JR"</span>)</p>
+                  <p class="p12"><span class="Apple-converted-space">    </span>}</p>
+                  <p class="p14"><span class="Apple-converted-space">    </span></p>
+                  <p class="p18"><span class="s21">}</span></p>
+                  <p class="p16"><span class="s1"></span><br></p>
+
+                  <p> We can clearly see the benefit of protocols in staticly typed languages as one can pass around 
+                      implementers without knowing their specific types and just interact with them through the protocol
+                      methods </p>
 
               <br>
               <h3 id="views">Views and View Controllers</h3>
@@ -160,9 +224,14 @@
                   are both designed to support displaying sets of data that can be scrolled. </p>
               <br>
               <h5>Delegate and Data Source</h5>
-              <p></p>
+              <p>The delegate and data source are protocols that a UIVIewController with an impeded UITableView must implement to instruct the table view how to layout it's data! We will see these in action during wednesday's class</p>
               <br>
               <h3 id="summary">Summary</h3>
+              <ul>
+                <li>Swift protocols allow method and property signatures to be declared for implementers to implement </li>
+                <li>There is a lifecycle for views in iOS</li>
+                <li>UITableView (and many custom UI elements) have delegate and data source protocols to implement when using them</li>
+              </ul>
               <br>
           </div>
       </div>
