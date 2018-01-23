@@ -35,23 +35,135 @@
               <div class="affix">
                   <p><strong>Outline</strong></p>
                   <hr>
-                  <p><a href="#foundation">Foundation</a></p>
-                  <p><a href="#view">View Controller</a></p>
+                  <p><a href="#swift">Swift Deep Dive</a></p>
+                  <p><a href="#views">Views and <br>&nbsp;&nbsp;&nbsp;View Controllers</a></p>
+                  <p><a href="#navigation">Navigation</a></p>
                   <p><a href="#table">Table View</a></p>
-                  <p><a href="#collection">Collection View</a></p>
-                  <p><a href="#protocols">Protocols</a></p>
                   <p><a href="#summary">Summary</a></p>
                 </div>
           </div>
           <div class="col-sm-10">
-              <h2>2. More Foundation and Following Protocols</h2>
+              <h2>2. Swift Deep Dive and Advanced Views</h2>
               <br>
               <div class="alert alert-danger" role="alert">
                   <strong>Oh snap!</strong> These notes are still under construction, check back soon and they'll be
                   ready.
               </div>
               <br>
-              <h3 id="info">Foundation</h3>
+              <h3 id="swift">Swift Deep Dive <img src="assets/images/swift.png" height="40px" style="    transform:
+              rotate(45deg);"/></h3>
+              <p>We introduced a lot of features in Swift to you in lecture 1. We encourage you to mess around in a
+                  Playground and continue to learn more. The better you are at Swift, the quicker it will be to build
+                  iOS apps!
+
+                  This week we'll
+                  <br>
+              </p>
+
+              <div class="bd-callout bd-callout-danger">
+                  <h6>Reading</h6>
+                  <p>In class we introduced you to concepts from <a
+                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html">The Basics</a> all the way to  <a
+                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html">Initialization</a> . Be sure
+                      to go over these sections and familarize yourself with the material more.</p>
+              </div>
+              <br>
+              <h5>Protocols</h5>
+              <p>A protocol defines a blueprint of methods, properties, and other requirements that suit a particular
+                  task or piece of functionality. The protocol can then be adopted by a class, structure, or
+                  enumeration to provide an actual implementation of those requirements. Any type that satisfies the
+                  requirements of a protocol is said to conform to that protocol.</p>
+
+              <br>
+              <h3 id="views">Views and View Controllers</h3>
+              <h6>Building Interfaces</h6>
+              <p>We'll be creating UIs as Storyboards with Interface Builder in Xcode. As we saw
+                  in the first class, this
+                  allows us to drag and drop various UI components onto the screen to visually build our UI.
+                  AutoLayout helps us ensure that our UI fits on all iOS devices of varying screen size. We
+                  could do this programmatically - and some of you my prefer that. If you wanna see how that's done,
+                  <a href="https://medium.com/@danstepanov/your-first-ios-app-100-programmatically-xcode-7-2-swift-2-1-9946d09610c4">check out this article.</a>
+              </p>
+
+              <br>
+              <h6>Views</h6>
+              <p>The UIView class defines a rectangular area on the screen on which it shows content. It handles the
+                  rendering of any content in its area and also any interactions with that content – touches and
+                  gestures. Your code can do some or all of the view’s drawing of itself; it can make the view appear
+                  and disappear, move, resize itself, and display many other physical changes, possibly with animation.
+              </p>
+              <div class="bd-callout bd-callout-info">
+                  <p><strong>UIView Tips</strong></p>
+                  <ul>
+                      <li>Views are the fundamental building blocks of your app's user interface</li>
+                      <li>The coordinate system for a view starts from the upper left</li>
+                      <li>Views are used for custom drawing and animation and can handle events such as touches or
+                          gestures</li>
+                      <li>Views may contain zero or more subviews and their size/position/orientation can be
+                          changed by you programmatically or through AutoLayout</li>
+                      <li><a href="https://www.weheartswift.com/uiview-fundamentals/">Here is a great tutorial</a> to learn more about UIView</li>
+                  </ul>
+              </div>
+              <p>
+                  The view hierarchy is the chief mode of view organization. A view can have subviews; a subview has exactly one immediate superview. Thus there is a tree of views. This hierarchy allows views to come and go together. If a view is removed from the interface, its subviews are removed; if a view is hidden (made invisible), its subviews are hidden; if a view is moved, its subviews move with it; and other changes in a view are likewise shared with its subviews.
+              </p>
+              <h6>View Controllers</h6>
+              <p>
+                  Management of the view resides in a view controller, an instance of UIViewController.
+                  Actually, a view controller is most likely to be an instance of a UIViewController subclass. The UIViewController class is designed to be subclassed. You are very unlikely to use a plain vanilla UIViewController object. You might write your own UIViewController subclass; you might use a built-in UIViewController subclass such as UINavigationController or UITabBarController; or you might subclass a built-in UIViewController subclass such as UITableViewController
+              </p>
+              <br>
+              <h6>View Controller Life Cycle</h6>
+              <p>The View has a "Life Cycle" - different moments in time that correspond to certain actions. All
+                  these commands are called automatically at the appropriate times by iOS when you load/present/hide
+                  the view controller. It's important to note that these methods are attached to
+                  <span style="font-family: 'Lucida Console';">UIViewController</span> and
+                  not to <span style="font-family: 'Lucida Console';">UIViews</span> themselves. You won't get any of these
+                  features just using a <span style="font-family: 'Lucida Console';">UIView</span>. </p>
+              <p>You can <a href="">check out Apple's official documentation here</a>. But here is a brief overview:</p>
+              <ul>
+                  <li><strong>ViewDidLoad.</strong> Called when you create the class and load from xib. Great for
+                      initial
+                      setup and
+                      one-time-only work.</li>
+
+                  <li><strong>ViewWillAppear.</strong> Called right before your view appears, good for hiding/showing fields
+                      or any
+                  operations that you want to happen every time before the view is visible. Because you might be
+                      going back and forth between views, this will be called every time your view is about to appear
+                      on the screen.</li>
+
+                  <li><strong>ViewDidAppear.</strong> Called after the view appears - great place to start an animations or
+                      the loading
+                      of external data from an API.</li>
+
+                  <li><strong>ViewWillDisappear/DidDisappear.</strong> Same idea as ViewWillAppear/ViewDidAppear.</li>
+
+                  <li>ViewDidUnload/ViewDidDispose - In Objective C, this is where you do your clean-up and
+                  release of stuff, but this is handled automatically so not much you really need to do here.</li>
+              </ul>
+              <div class="text-center">
+                  <img src="assets/images/lifecycle.jpg">
+              </div>
+              <hr>
+              <a style="font-size:10px;" href="http://www.apeth.com/iOSBook/ch14.html">-
+                  http://www.apeth.com/iOSBook/ch14.html</a><br>
+              <a style="font-size:10px;" href="https://stackoverflow.com/questions/5562938/looking-to-understand-the-ios-uiviewcontroller-lifecycle">-
+                  https://stackoverflow.com/questions/5562938/looking-to-understand-the-ios-uiviewcontroller-lifecycle</a><br>
+              <br>
+              <h3 id="navigation">Navigation</h3>
+              <h6>Segues</h6>
+              <br>
+              <h3 id="table">Table and Collection Views</h3>
+              <p>Displaying sets of data is a rather common task in building a mobile app. Apple’s SDK provides two
+                  components to help carry out such a task without having to implement everything from scratch: A
+                  table view (UITableView) and a collection view (UICollectionView).Table views and collection views
+                  are both designed to support displaying sets of data that can be scrolled. </p>
+              <br>
+              <h6>Delegate and Data Source</h6>
+              <p></p>
+              <br>
+              <h3 id="summary">Summary</h3>
               <br>
           </div>
       </div>
