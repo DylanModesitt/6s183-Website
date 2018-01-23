@@ -57,6 +57,15 @@
               <h3>General</h3>
               <ul class="list-unstyled">
                   <li v-for="resource in generalResources"><a :href="resource.url">{{ resource.title }}</a></li>
+                  <li><img src="assets/images/piazza.png" width="14px" style="border-radius: 5px">&nbsp;<a
+                          href="https://piazza.com/class/jcnv5c7vu0s53l">Course
+                      Piazza
+                      Page</a></li>
+                  <li><img src="assets/images/github.svg" width="14px">&nbsp;<a
+                          href="https://github.com/DylanModesitt/6s183">Example
+                      Code
+                      on
+                      GitHub</a></li>
               </ul>
 
               <h3>Readings</h3>
@@ -109,21 +118,16 @@
                       url: './lecture-1.html',
                       title: '1. Intro to Xcode and Swift 4. Your first iOS app!'
                   },
-//                  {
-//                      url: './lecture-2.html',
-//                      title: '2. More Foundation and Following Protocols',
-//                      disabled: 'disabled'
-//                  }
+                  {
+                      url: './lecture-2.html',
+                      title: '2. Swift Deep Dive and Advanced Views',
+                  }
               ],
               generalResources: [
                   {
                       url: './getting-started.html',
                       title: 'Getting Started'
                   },
-                  {
-                      url: 'https://piazza.com/class/jcnv5c7vu0s53l',
-                      title: 'Course Piazza Page',
-                  }
               ]
           }
       })
