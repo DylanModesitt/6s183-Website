@@ -52,20 +52,19 @@
               <br>
               <h3 id="swift">Swift Deep Dive <img src="assets/images/swift.png" height="40px" style="    transform:
               rotate(45deg);"/></h3>
-              <p>We introduced a lot of features in Swift to you in lecture 1. We encourage you to mess around in a
+              <p>We introduced a lot of Swift features to you in lecture 1. We encourage you to mess around in a
                   Playground and continue to learn more. The better you are at Swift, the quicker it will be to build
                   iOS apps!
-
-                  This week we'll
                   <br>
               </p>
 
               <div class="bd-callout bd-callout-danger">
                   <h6>Reading</h6>
-                  <p>In class we introduced you to concepts from <a
+                  <p>In class we went through concepts from <a
                           href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html">The Basics</a> all the way to  <a
                           href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html">Initialization</a> . Be sure
-                      to go over these sections and familarize yourself with the material more.</p>
+                      to go over all 14 sections and familiarize yourself with the concepts and syntax. <br><small>No
+                              need to read every detail, but make sure you get the gist of the language.</small></p>
               </div>
               <br>
               <h5>Protocols</h5>
@@ -76,7 +75,7 @@
 
               <br>
               <h3 id="views">Views and View Controllers</h3>
-              <h6>Building Interfaces</h6>
+              <h5>Building Interfaces</h5>
               <p>We'll be creating UIs as Storyboards with Interface Builder in Xcode. As we saw
                   in the first class, this
                   allows us to drag and drop various UI components onto the screen to visually build our UI.
@@ -86,7 +85,7 @@
               </p>
 
               <br>
-              <h6>Views</h6>
+              <h5>Views</h5>
               <p>The UIView class defines a rectangular area on the screen on which it shows content. It handles the
                   rendering of any content in its area and also any interactions with that content – touches and
                   gestures. Your code can do some or all of the view’s drawing of itself; it can make the view appear
@@ -107,13 +106,13 @@
               <p>
                   The view hierarchy is the chief mode of view organization. A view can have subviews; a subview has exactly one immediate superview. Thus there is a tree of views. This hierarchy allows views to come and go together. If a view is removed from the interface, its subviews are removed; if a view is hidden (made invisible), its subviews are hidden; if a view is moved, its subviews move with it; and other changes in a view are likewise shared with its subviews.
               </p>
-              <h6>View Controllers</h6>
+              <h5>View Controllers</h5>
               <p>
                   Management of the view resides in a view controller, an instance of UIViewController.
                   Actually, a view controller is most likely to be an instance of a UIViewController subclass. The UIViewController class is designed to be subclassed. You are very unlikely to use a plain vanilla UIViewController object. You might write your own UIViewController subclass; you might use a built-in UIViewController subclass such as UINavigationController or UITabBarController; or you might subclass a built-in UIViewController subclass such as UITableViewController
               </p>
               <br>
-              <h6>View Controller Life Cycle</h6>
+              <h5>View Controller Life Cycle</h5>
               <p>The View has a "Life Cycle" - different moments in time that correspond to certain actions. All
                   these commands are called automatically at the appropriate times by iOS when you load/present/hide
                   the view controller. It's important to note that these methods are attached to
@@ -152,7 +151,7 @@
                   https://stackoverflow.com/questions/5562938/looking-to-understand-the-ios-uiviewcontroller-lifecycle</a><br>
               <br>
               <h3 id="navigation">Navigation</h3>
-              <h6>Segues</h6>
+              <h5>Segues</h5>
               <br>
               <h3 id="table">Table and Collection Views</h3>
               <p>Displaying sets of data is a rather common task in building a mobile app. Apple’s SDK provides two
@@ -160,7 +159,7 @@
                   table view (UITableView) and a collection view (UICollectionView).Table views and collection views
                   are both designed to support displaying sets of data that can be scrolled. </p>
               <br>
-              <h6>Delegate and Data Source</h6>
+              <h5>Delegate and Data Source</h5>
               <p></p>
               <br>
               <h3 id="summary">Summary</h3>
