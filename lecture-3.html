@@ -36,7 +36,7 @@
                   <p><strong>Outline</strong></p>
                   <hr>
                   <p><a href="#mvc">MVC</a></p>
-                  <p><a href="#api">Remote Web Services<br>&nbsp;&nbsp;&nbsp;&nbsp;and APIs</a></p>
+                  <p><a href="#api">APIs</a></p>
                   <p><a href="#libs">Using Third Party <br>&nbsp;&nbsp;&nbsp;&nbsp;Libraries</a></p>
                   <p><a href="#firebase">FireBase</a></p>
                   <p><a href="#summary">Summary</a></p>
@@ -44,12 +44,8 @@
           </div>
           <div class="col-sm-10">
 
-              <div class="alert alert-danger">
-                <strong>Oh No!</strong> These notes are still under construction.
-              </div>
 
               <h2>3. MVC, APIs and FireBase</h2>
-              <br>
               <div class="bd-callout bd-callout-danger">
                   <h6>Reading <img src="assets/images/swift.png" width="20px"></h6>
                   <p>If you didn't get a chance to go through sections <a
@@ -61,9 +57,9 @@
 
               <br>
               <h3 id="mvc">Model View Controller</h3>
-              <p>We mentioned the design strategy behind iOS apps on the first day - Model-View-Controller. Let's
-                  first understand a high level over view of this concept, and then dive into how these three parts
-                  work together in a real world example - the To Do app.
+              <p>We mentioned the design strategy behind iOS apps on the first day - Model-View-Controller. In iOS it
+                  becomes very common for developers to put code into a View Controller even when it shouldn't.
+                  Beware of Massive View Controllers and make sure you are keeping a good separation of code!
               </p>
               <p>The Model View Controller paradigm:</p>
               <div class="text-center">
@@ -101,9 +97,8 @@
                   <strong>Dependency Injection</strong>
                   <p>When creating complex models, where certain classes "depend" on others, always try to pass
                       an instance of the independent class to the dependent class in it's <span style="font-family:
-                      'Lucida Console';color:deeppink">init</span> method. This design strategy is called "Dependency
-                      Injection, " you can <a
-                              href="https://medium.com/ios-os-x-development/dependency-injection-in-swift-a959c6eee0ab">read more about it here</a>.</p>
+                      'Lucida Console';color:deeppink">init</span> method. This design strategy is called <a
+                              href="https://medium.com/ios-os-x-development/dependency-injection-in-swift-a959c6eee0ab">Dependency Injection</a>, and is recommended by Apple.</p>
 
               </div>
 
@@ -114,35 +109,100 @@
                   https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach</a><br>
                 <br>
                 <br>
-              <h3 id="api">Remote Web Services and APIs</h3>
+              <h3 id="api">APIs</h3>
+
+              <p>API stands for Application Programming Interface. It is a programmatic way to be able to access
+                  functions and data of other apps. In terms of Libraries, an API is the functions/methods included
+                  in the library. We've already been using Apple's APIs for TableViews. Today pretty much every major
+                  platform has an API, most of them are free and you can access them to work with maps and location
+                  you can use Facebook, Twitter or Google and all the data they have. So API’s allows you to access a
+                  huge amount of data and built apps that rely on existing systems like Facebook or Twitter.</p>
 
               <p><strong>JavaScript Object Notation</strong>, or <strong>JSON</strong> for short, is a common way to transmit
                   data to
                   and from
                   web
                              services. It’s simple to use and human-readable, which is why it’s so incredibly
-                  popular. We'll be working with JSON when dealing with Web APIs</p>
+                  popular. We'll be working with JSON when dealing with Web APIs. To make HTTP requests to Web APIs
+                  that don't have iOS Libraries, we need to make raw GET and POST requests. To do this, one would use
+                  <span
+                          style="font-family: 'Lucida Console'">URLSession
+                  </span> and <span style="font-family: 'Lucida Console'">JSONDecoder</span>.
+                  The URLSession grabs the data using an HTTP request and then the JSONDecoder class converts the JSON
+                  response into the data type you need (such as String, Int and Objects).</p>
               <hr>
-              <a style="font-size:10px;" href="http://www.apeth.com/iOSBook/ch14.html">-
-                  http://www.apeth.com/iOSBook/ch14.html</a><br>
-
+              <a style="font-size:10px;" href="https://medium.com/aviabird/swift-3-apis-json-data-6ca749b550b3">-
+                  https://medium.com/aviabird/swift-3-apis-json-data-6ca749b550b3</a><br>
               <br>
 
               <h3 id="libs">Using Third Party Libraries</h3>
-              <p>On iOS, navigation controllers are one of the primary tools for presenting multiple screens of content. All iOS applications share a very uniform approach                 to navigation throgh UINavigationController that we will overview in class. 
+              <p>Sites like Github are full of Third Party Libraries - chunks of code written by developers like
+                  you and me to share with others. Libraries offer quick and easy ways to bring awesome features
+                  into your Xcode project. They save you code, time and sanity! There are libraries for various
+                  things: everything from UI elements to random color generation to integration with cool Web services.
+
+                  <br>
+                  <br>
+                  Check out
+                  <a href="https://github.com/Wolg/awesome-swift">this list of awesome open-source libraries</a>.
+              <br>
+              <br>
+                  One of my favorite Libraries is <a href="https://developer.affectiva.com/">Affectiva</a> - it classifies emotions based on Facial
+                  expression on
+                  the device in near real time!
+              </p>
 
               <br>
+              <h6>Installing Libraries</h6>
+              <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
+              Web or 2) use a dependency manager like Cocoapods.</p>
 
-              <h3 id="firebase">Table and Collection Views</h3>
-              <p>Firebase is... </p>
+              <p><a href="https://cocoapods.org/">Cocoapods</a> is a dependency manager for Swift and Objective-C Cocoa
+                  projects. A dependency manager makes it easy to add, remove, update and manage third-party dependencies used by your app.
+                  CocoaPods has over 42 thousand libraries and is used in over 3 million apps. The
+                  configuration file for Cocoapods is called a "Pod file" - it lists all of the libraries your
+                  project depends on and their version numbers.</p>
+
+              <div class="bd-callout bd-callout-danger">
+                  <strong>Install Cocoapods</strong>
+                  We'll show you how to use Cocoapods in class on Friday, please make sure you have it installed. You
+                  can do this with Ruby (which ships with all modern Macs) by running the following lines in terminal:
+                    <br>
+                  <code>
+                      sudo gem install cocoapods<br>
+                      pod setup --verbose
+                  </code>
+              </div>
+              <br>
+
+              <h3 id="firebase">Firebase <img src="assets/images/firebase.png" width="20px"></h3>
+              <p><a href="https://firebase.google.com/">Firebase</a> is a mobile-backend-as-a-service from Google that
+                  provides several features for building
+                  powerful
+                  mobile apps. Firebase has three core services: a realtime database, user authentication and
+                  hosting. With the <a href="https://firebase.google.com/docs/ios/setup">Firebase iOS SDK</a>, you can use these services to build powerful apps
+                  without
+                                               writing a single line of server code.
+                <br>
+                <br>
+                  The realtime database is one of the most unique features of Firebase. When a Firebase database
+                  updates, all connected users receive updates in realtime. This means your app can stay up to date without user interaction.
+                  <br>
+                  <br>
+                  Many of you will be using Firebase as your Cloud Backend for you project and to Authenticate Users
+                  (and give them accounts). We'll step through building an app with Firebase in class together!
+
+              </p>
+
 
               <br>
 
               <h3 id="summary">Summary</h3>
               <ul>
-                <li>Swift protocols allow method and property signatures to be declared for implementers to implement </li>
-                <li>There is a lifecycle for views in iOS</li>
-                <li>UITableView (and many custom UI elements) have delegate and data source protocols to implement when using them</li>
+                <li>MVC is the design strategy for iOS - beware of Massive View Controllers </li>
+                <li>Third Party Libraries are very useful and can save a developer a lot of time and work</li>
+                <li>Firebase is a platform with realtime database, user authentication and hosting used by many
+                    developers</li>
               </ul>
               <br>
           </div>
