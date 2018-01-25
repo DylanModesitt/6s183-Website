@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>6s183 - Lecture 3 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/the.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">6.s183</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:6s183-staff@mit.edu" >Contact Instructors</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <main role="main" id="app" class="container">
+      <div class="row">
+          <div class="col-sm-2 d-none d-lg-block">
+              <div class="affix">
+                  <p><strong>Outline</strong></p>
+                  <hr>
+                  <p><a href="#mvc">MVC</a></p>
+                  <p><a href="#api">Remote Web Services<br>&nbsp;&nbsp;&nbsp;&nbsp;and APIs</a></p>
+                  <p><a href="#libs">Using Third Party <br>&nbsp;&nbsp;&nbsp;&nbsp;Libraries</a></p>
+                  <p><a href="#firebase">FireBase</a></p>
+                  <p><a href="#summary">Summary</a></p>
+                </div>
+          </div>
+          <div class="col-sm-10">
+
+              <div class="alert alert-danger">
+                <strong>Oh No!</strong> These notes are still under construction.
+              </div>
+
+              <h2>3. MVC, APIs and FireBase</h2>
+              <br>
+              <div class="bd-callout bd-callout-danger">
+                  <h6>Reading <img src="assets/images/swift.png" width="20px"></h6>
+                  <p>If you didn't get a chance to go through sections <a
+                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html">The Basics</a>  to  <a
+                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html">Initialization</a>,
+                      take the time to familiarize yourself with the concepts and syntax.
+                      <br><small>Not getting tripped up on the language will be a huge step!</small></p>
+              </div>
+
+              <br>
+              <h3 id="mvc">Model View Controller</h3>
+              <p>We mentioned the design strategy behind iOS apps on the first day - Model-View-Controller. Let's
+                  first understand a high level over view of this concept, and then dive into how these three parts
+                  work together in a real world example - the To Do app.
+              </p>
+              <p>The Model View Controller paradigm:</p>
+              <div class="text-center">
+                  <img src="assets/images/mvc.png" width="50%">
+              </div>
+              <br>
+              <p><strong>Models.</strong> Where your data resides. Things like persistence, model objects,
+                  parsers and networking code normally live there.</p>
+              <p><strong>Views.</strong> The face of your app. Its classes are typically reusable, since
+                  there aren't any domain-specific logic in them. For example, a <span style="font-family: 'Lucida Console'">UILabel</span> is a
+                  view that
+                  presents text on the screen, and it’s easily reusable.</p>
+              <p><strong>Controllers.</strong> Mediates between the view and the model, typically via the
+                  delegation pattern. In the ideal scenario, the controller entity won’t know the concrete
+                  view it’s dealing with. Instead, it will communicate with an abstraction via a protocol. A
+                  classic example is the way a <span style="font-family: 'Lucida Console'">UITableView</span>
+                      communicates with its data source via the <span
+                          style="font-family: 'Lucida Console'">UITableViewDataSource</span> protocol.
+              </p>
+
+              <p>Simple, right? <a
+                      href="https://developer.apple.com/library/content/documentation/General/Conceptual/CocoaEncyclopedia/Model-View-Controller/Model-View-Controller.html">Apple’s MVC documentation</a> explains these layers in detail and can give
+                  you a
+                  theoretical understanding that will help you avoid potential pitfalls.</p>
+
+              <br>
+              <p>With the View Controller Lifecycle methods we learned about last week, we can draw a "more realistic"
+                  Cocoa MVC relationship, that
+                  follows the same principles:</p>
+              <div class="text-center">
+                  <img src="assets/images/coaco_mvc.png" width="50%">
+              </div>
+
+              <div class="bd-callout bd-callout-info">
+                  <strong>Dependency Injection</strong>
+                  <p>When creating complex models, where certain classes "depend" on others, always try to pass
+                      an instance of the independent class to the dependent class in it's <span style="font-family:
+                      'Lucida Console';color:deeppink">init</span> method. This design strategy is called "Dependency
+                      Injection, " you can <a
+                              href="https://medium.com/ios-os-x-development/dependency-injection-in-swift-a959c6eee0ab">read more about it here</a>.</p>
+
+              </div>
+
+              <hr>
+              <a style="font-size:10px;" href="https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52">-
+                  https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52</a><br>
+              <a style="font-size:10px;" href="https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach">-
+                  https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach</a><br>
+                <br>
+                <br>
+              <h3 id="api">Remote Web Services and APIs</h3>
+
+              <p><strong>JavaScript Object Notation</strong>, or <strong>JSON</strong> for short, is a common way to transmit
+                  data to
+                  and from
+                  web
+                             services. It’s simple to use and human-readable, which is why it’s so incredibly
+                  popular. We'll be working with JSON when dealing with Web APIs</p>
+              <hr>
+              <a style="font-size:10px;" href="http://www.apeth.com/iOSBook/ch14.html">-
+                  http://www.apeth.com/iOSBook/ch14.html</a><br>
+
+              <br>
+
+              <h3 id="libs">Using Third Party Libraries</h3>
+              <p>On iOS, navigation controllers are one of the primary tools for presenting multiple screens of content. All iOS applications share a very uniform approach                 to navigation throgh UINavigationController that we will overview in class. 
+
+              <br>
+
+              <h3 id="firebase">Table and Collection Views</h3>
+              <p>Firebase is... </p>
+
+              <br>
+
+              <h3 id="summary">Summary</h3>
+              <ul>
+                <li>Swift protocols allow method and property signatures to be declared for implementers to implement </li>
+                <li>There is a lifecycle for views in iOS</li>
+                <li>UITableView (and many custom UI elements) have delegate and data source protocols to implement when using them</li>
+              </ul>
+              <br>
+          </div>
+      </div>
+      <br>
+      <br>
+
+   
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+</body>
+</html>
