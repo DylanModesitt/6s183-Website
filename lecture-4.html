@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>6s183 - Lecture 3 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/the.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">6.s183</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:6s183-staff@mit.edu" >Contact Instructors</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <main role="main" id="app" class="container">
+      <div class="row">
+          <div class="col-sm-2 d-none d-lg-block">
+              <div class="affix">
+                  <p><strong>Outline</strong></p>
+                  <hr>
+                  <p><a href="#images">Images</a></p>
+                  <p><a href="#maps">Maps</a></p>
+                  <p><a href="#geo">Geolocation</a></p>
+                  <p><a href="#interaction">Interaction</a></p>
+                  <p><a href="#summary">Summary</a></p>
+                </div>
+          </div>
+          <div class="col-sm-10">
+
+
+              <h2>4. Images, Maps and Interaction</h2>
+              <div class="bd-callout bd-callout-danger">
+                  <h6>Reading <img src="assets/images/swift.png" width="20px"></h6>
+                  <p>If you didn't get a chance to go through sections <a
+                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html">The Basics</a>  to  <a
+                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html">Initialization</a>,
+                      take the time to familiarize yourself with the concepts and syntax.
+                      <br><small>Not getting tripped up on the language will be a huge step!</small></p>
+              </div>
+
+              <br>
+              <h3 id="images">Images</h3>
+              <p>We mentioned the design strategy behind iOS apps on the first day - Model-View-Controller. In iOS it
+                  becomes very common for developers to put code into a View Controller even when it shouldn't.
+                  Beware of Massive View Controllers and make sure you are keeping a good separation of code!
+              </p>
+
+              <div class="bd-callout bd-callout-info">
+                  <strong>Dependency Injection</strong>
+                  <p>When creating complex models, where certain classes "depend" on others, always try to pass
+                      an instance of the independent class to the dependent class in it's <span style="font-family:
+                      'Lucida Console';color:deeppink">init</span> method. This design strategy is called <a
+                              href="https://medium.com/ios-os-x-development/dependency-injection-in-swift-a959c6eee0ab">Dependency Injection</a>, and is recommended by Apple.</p>
+
+              </div>
+
+              <hr>
+              <a style="font-size:10px;" href="https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach">-
+                  https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach</a><br>
+                <br>
+                <br>
+              <h3 id="maps">Maps</h3>
+
+              <p>API stands for Application Programming Interface. It is a programmatic way to be able to access
+                  functions and data of other apps. In terms of Libraries, an API is the functions/methods included
+                  in the library. We've already been using Apple's APIs for TableViews. Today pretty much every major
+                  platform has an API, most of them are free and you can access them to work with maps and
+                  location. APIs allows you to access a
+                  huge amount of data and build apps that rely on existing systems like Facebook or Google.</p>
+
+
+              <br>
+              <br>
+              <h3 id="geo">Geolocation</h3>
+              <p><a href="https://firebase.google.com/">Firebase</a> is a mobile-backend-as-a-service from Google that
+                  provides several features for building
+                  powerful
+                  mobile apps. Firebase has three core services: a realtime database, user authentication and
+                  hosting. With the <a href="https://firebase.google.com/docs/ios/setup">Firebase iOS SDK</a>, you can use these services to build powerful apps
+                  without
+                  writing a single line of server code.
+                  <br>
+                  <br>
+                  The realtime database is one of the most unique features of Firebase. When a Firebase database
+                  updates, all connected users receive updates in realtime. This means your app can stay up to date without user interaction.
+                  <br>
+                  <br>
+                  Many of you will be using Firebase as your Cloud Backend for you project and to Authenticate Users
+                  (and give them accounts). We'll step through building an app with Firebase in class together!
+
+              </p>
+              <br>
+              <br>
+
+              <h3 id="libs">Interaction</h3>
+              <p>iPhone has
+              </p>
+
+              <br>
+              <h6>Gestures</h6>
+              <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
+              Web or 2) use a dependency manager like Cocoapods.</p>
+              <h6>Haptics</h6>
+              <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
+                  Web or 2) use a dependency manager like Cocoapods.</p>
+              <h6>Shake</h6>
+              <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
+                  Web or 2) use a dependency manager like Cocoapods.</p>
+
+              <p><a href="https://cocoapods.org/">Cocoapods</a> is a dependency manager for Swift and Objective-C Cocoa
+                  projects. A dependency manager makes it easy to add, remove, update and manage third-party dependencies used by your app.
+                  CocoaPods has over 42 thousand libraries and is used in over 3 million apps. The
+                  configuration file for Cocoapods is called a "Pod file" - it lists all of the libraries your
+                  project depends on and their version numbers.</p>
+
+              <div class="bd-callout bd-callout-danger">
+                  <strong>Install Cocoapods</strong>
+                  We'll show you how to use Cocoapods in class on Friday, please make sure you have it installed. You
+                  can do this with Ruby (which ships with all modern Macs) by running the following lines in terminal:
+                    <br>
+                  <code>
+                      sudo gem install cocoapods<br>
+                      pod setup --verbose
+                  </code>
+              </div>
+              <br>
+
+
+              <br>
+
+              <h3 id="summary">Summary</h3>
+              <ul>
+                <li>MVC is the design strategy for iOS - beware of Massive View Controllers </li>
+                <li>Third Party Libraries are very useful and can save a developer a lot of time and work</li>
+                <li>Firebase is a platform with realtime database, user authentication and hosting used by many
+                    developers</li>
+              </ul>
+              <br>
+          </div>
+      </div>
+      <br>
+      <br>
+
+   
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+</body>
+</html>
