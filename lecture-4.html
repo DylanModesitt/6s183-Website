@@ -36,8 +36,7 @@
                   <p><strong>Outline</strong></p>
                   <hr>
                   <p><a href="#images">Images</a></p>
-                  <p><a href="#maps">Maps</a></p>
-                  <p><a href="#geo">Geolocation</a></p>
+                  <p><a href="#maps">Maps and Location</a></p>
                   <p><a href="#interaction">Interaction</a></p>
                   <p><a href="#summary">Summary</a></p>
                 </div>
@@ -47,69 +46,76 @@
 
               <h2>4. Images, Maps and Interaction</h2>
               <div class="bd-callout bd-callout-danger">
-                  <h6>Reading <img src="assets/images/swift.png" width="20px"></h6>
-                  <p>If you didn't get a chance to go through sections <a
-                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html">The Basics</a>  to  <a
-                          href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html">Initialization</a>,
-                      take the time to familiarize yourself with the concepts and syntax.
-                      <br><small>Not getting tripped up on the language will be a huge step!</small></p>
+                  <h6>Assignment - Due Monday 1pm</h6>
+                  <p>It's time to get coding on your final project! <br><br> Send the instructors a 2-3 paragraph
+                      summary of
+                      your app including:
+                      <ol>
+                        <li>a summary of the app</li>
+                        <li>who are your users</li>
+                        <li>an extensive feature list</li>
+                        <li>proposed UI design (how many screens? what do they show? etc.) [this can be drawn or
+                            written]</li>
+                        <li>technologies you are going to use to build it</li>
+                        <li>Any help/advice you need</li>
+                    </ol>
+                  Email your answers to <a href="mailto:6s183-staff@mit.edu" >6s183-staff@mit.edu</a>
+                  <br><small>Defining your app before coding is crucial!</small></p>
               </div>
 
               <br>
               <h3 id="images">Images</h3>
-              <p>We mentioned the design strategy behind iOS apps on the first day - Model-View-Controller. In iOS it
-                  becomes very common for developers to put code into a View Controller even when it shouldn't.
-                  Beware of Massive View Controllers and make sure you are keeping a good separation of code!
+              <p>The basic general UIKit image class is <code>UIImage</code>. UIImage can read a file from disk, so if an
+                  image
+                  does not need to be created dynamically, but has already been created before your app runs, then
+                  drawing may be as simple as providing an image file as a resource in your app’s bundle. The system
+                  knows how to work with many standard image file types, such as TIFF, JPEG, GIF, and PNG. You can
+                  also  obtain image data in some other way, such as by downloading it, and transform this into a
+                  UIImage. Conversely, you can draw your own image for display in your interface or for saving to
+                  disk. Many built-in Cocoa interface objects will accept a UIImage as part of how they draw themselves; for example, a UIButton can display an image, and a UINavigationBar or a UITabBar can have a background image.
               </p>
+              <p>In the very simplest case, an image file in your app’s bundle can be obtained through the
+                  UIImage class method <code>imageNamed:</code>. This method looks at the top level of your app’s bundle
+                      for an
+                  image file with the supplied name, including the file extension, and reads it as a <code>UIImage</code>
+                  instance.  A nice thing about this approach is that memory management is handled for you: the
+                  image data may be cached in memory, and if you ask for the same image by calling <code>imageNamed:</code>
+                      again
+                  later, the cached data may be supplied immediately. You can also read an image file from anywhere
+                  in  your app’s bundle using the class method <code>imageWithContentsOfFile:</code> or the instance method
+                  <code>initWithContentsOfFile:</code>, both of which expect a pathname string; you can get a reference to
+                  your app’s bundle with <code>NSBundle.mainBundle()</code>, and NSBundle then provides instance
+                      methods for
+                  getting the pathname of a file within the bundle, such as <code>pathForResource:ofType:</code>.</p>
 
               <div class="bd-callout bd-callout-info">
-                  <strong>Dependency Injection</strong>
-                  <p>When creating complex models, where certain classes "depend" on others, always try to pass
-                      an instance of the independent class to the dependent class in it's <span style="font-family:
-                      'Lucida Console';color:deeppink">init</span> method. This design strategy is called <a
-                              href="https://medium.com/ios-os-x-development/dependency-injection-in-swift-a959c6eee0ab">Dependency Injection</a>, and is recommended by Apple.</p>
-
+                  <strong>PNG images preferred</strong>
+                  <p>In iOS development, PNG is favored because of the multiple formatting and optional editing. Most
+                      importantly, PNG is a loss-less compression format, that means it compresses images without
+                      losing any quality. In addition, PNG supports transparency, while others such as JPG do not.</p>
               </div>
 
+              <p>
+                  A <code>UIImageView</code> is a <code>UIView</code>, so it can have a background color in addition
+                  to its
+                  image, it can
+                                     have an alpha (transparency) value, and so forth. A UIImageView without a background color is invisible except for its image, so the image simply appears in the interface, without the user being aware that it resides in a rectangular host. An image may have areas that are transparent, and a UIImageView will respect this; thus an image of any shape can appear. A UIImageView without an image and without a background color is invisible, so you could start with an empty UIImageView in the place where you will later need an image and subsequently assign the image in code. You can assign a new image to substitute one image for another.
+              </p>
               <hr>
               <a style="font-size:10px;" href="https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach">-
                   https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach</a><br>
                 <br>
                 <br>
-              <h3 id="maps">Maps</h3>
+              <h3 id="maps">Maps and Location</h3>
 
-              <p>API stands for Application Programming Interface. It is a programmatic way to be able to access
-                  functions and data of other apps. In terms of Libraries, an API is the functions/methods included
-                  in the library. We've already been using Apple's APIs for TableViews. Today pretty much every major
-                  platform has an API, most of them are free and you can access them to work with maps and
-                  location. APIs allows you to access a
-                  huge amount of data and build apps that rely on existing systems like Facebook or Google.</p>
-
+              <p><code>MapKit</code> is a really useful API available on iOS devices that makes it easy to display maps,
+                  plot
+                         locations, and even draw routes and other shapes on top.</p>
 
               <br>
               <br>
-              <h3 id="geo">Geolocation</h3>
-              <p><a href="https://firebase.google.com/">Firebase</a> is a mobile-backend-as-a-service from Google that
-                  provides several features for building
-                  powerful
-                  mobile apps. Firebase has three core services: a realtime database, user authentication and
-                  hosting. With the <a href="https://firebase.google.com/docs/ios/setup">Firebase iOS SDK</a>, you can use these services to build powerful apps
-                  without
-                  writing a single line of server code.
-                  <br>
-                  <br>
-                  The realtime database is one of the most unique features of Firebase. When a Firebase database
-                  updates, all connected users receive updates in realtime. This means your app can stay up to date without user interaction.
-                  <br>
-                  <br>
-                  Many of you will be using Firebase as your Cloud Backend for you project and to Authenticate Users
-                  (and give them accounts). We'll step through building an app with Firebase in class together!
 
-              </p>
-              <br>
-              <br>
-
-              <h3 id="libs">Interaction</h3>
+              <h3 id="interaction">Interaction</h3>
               <p>iPhone has
               </p>
 
@@ -124,22 +130,6 @@
               <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
                   Web or 2) use a dependency manager like Cocoapods.</p>
 
-              <p><a href="https://cocoapods.org/">Cocoapods</a> is a dependency manager for Swift and Objective-C Cocoa
-                  projects. A dependency manager makes it easy to add, remove, update and manage third-party dependencies used by your app.
-                  CocoaPods has over 42 thousand libraries and is used in over 3 million apps. The
-                  configuration file for Cocoapods is called a "Pod file" - it lists all of the libraries your
-                  project depends on and their version numbers.</p>
-
-              <div class="bd-callout bd-callout-danger">
-                  <strong>Install Cocoapods</strong>
-                  We'll show you how to use Cocoapods in class on Friday, please make sure you have it installed. You
-                  can do this with Ruby (which ships with all modern Macs) by running the following lines in terminal:
-                    <br>
-                  <code>
-                      sudo gem install cocoapods<br>
-                      pod setup --verbose
-                  </code>
-              </div>
               <br>
 
 
