@@ -37,7 +37,7 @@
                   <hr>
                   <p><a href="#images">Images</a></p>
                   <p><a href="#maps">Maps and Location</a></p>
-                  <p><a href="#interaction">Interaction</a></p>
+                  <p><a href="#memory">Memory Management</a></p>
                   <p><a href="#summary">Summary</a></p>
                 </div>
           </div>
@@ -65,7 +65,7 @@
 
               <br>
               <h3 id="images">Images</h3>
-              <p>The basic general UIKit image class is <code>UIImage</code>. UIImage can read a file from disk, so if an
+              <p>The basic general UIKit image class is <a href="https://developer.apple.com/documentation/uikit/uiimage">UIImage</a>. UIImage can read a file from disk, so if an
                   image
                   does not need to be created dynamically, but has already been created before your app runs, then
                   drawing may be as simple as providing an image file as a resource in your app’s bundle. The system
@@ -82,11 +82,8 @@
                   image data may be cached in memory, and if you ask for the same image by calling <code>imageNamed:</code>
                       again
                   later, the cached data may be supplied immediately. You can also read an image file from anywhere
-                  in  your app’s bundle using the class method <code>imageWithContentsOfFile:</code> or the instance method
-                  <code>initWithContentsOfFile:</code>, both of which expect a pathname string; you can get a reference to
-                  your app’s bundle with <code>NSBundle.mainBundle()</code>, and NSBundle then provides instance
-                      methods for
-                  getting the pathname of a file within the bundle, such as <code>pathForResource:ofType:</code>.</p>
+                  in  your app’s bundle using the instance method <code>init(contentsOfFile:)</code>, which
+                  expect a pathname string that should include the filename extension.</p>
 
               <div class="bd-callout bd-callout-info">
                   <strong>PNG images preferred</strong>
@@ -102,45 +99,108 @@
                                      have an alpha (transparency) value, and so forth. A UIImageView without a background color is invisible except for its image, so the image simply appears in the interface, without the user being aware that it resides in a rectangular host. An image may have areas that are transparent, and a UIImageView will respect this; thus an image of any shape can appear. A UIImageView without an image and without a background color is invisible, so you could start with an empty UIImageView in the place where you will later need an image and subsequently assign the image in code. You can assign a new image to substitute one image for another.
               </p>
               <hr>
-              <a style="font-size:10px;" href="https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach">-
-                  https://www.raywenderlich.com/132662/mvc-in-ios-a-modern-approach</a><br>
+              <a style="font-size:10px;" href="http://www.apeth.com/iOSBook/ch15.html#_uiimage_and_uiimageview">-
+                  http://www.apeth.com/iOSBook/ch15.html#_uiimage_and_uiimageview</a><br>
                 <br>
                 <br>
               <h3 id="maps">Maps and Location</h3>
 
               <p><code>MapKit</code> is a really useful API available on iOS devices that makes it easy to display maps,
                   plot
-                         locations, and even draw routes and other shapes on top.</p>
+                         locations, and even draw routes and other shapes on top. A map is displayed through a UIView
+                  subclass, an MKMapView. The map is potentially a map of the entire world; the map view is usually configured to display a particular area. An MKMapView instance can be created in code or through the nib editor. A map has a type, which is one of the following: MKMapTypeStandard, MKMapTypeSatellite, MKMapTypeHybrid
+                  <br><br>The area displayed on the map is its region, an MKCoordinateRegion. This is a struct
+                           comprising a location (a CLLocationCoordinate2D), describing the latitude and longitude of the point at the center of the region (the map’s centerCoordinate), along with a span (an MKCoordinateSpan), describing the quantity of latitude and longitude embraced by the region and hence the scale of the map. Convenience functions help you construct an MKCoordinateRegion.
+
+              <br><br>
+              We'll go over how to work with Map Kit in class.</p>
+
+              The iPhone has GPS built in, a sensor that can determine its current location. Map Kit provides simple
+              integration with this. Keep in mind that the user can turn off these sensors or can refuse your app
+              access to them (in the Settings app, under Privacy → Location Services), so trying to use these features may fail. Also, determining the device’s location can take time.
+<br>
+<br>
+              You can ask an MKMapView in your app to display the device’s location just by setting its
+              <code>showsUserLocation</code> property to <code>true</code>. If your app has not been granted or denied access
+              to Location
+              Services, the system alert requesting authorization will appear. If access is granted, the map automatically puts an annotation at that location.
 
               <br>
               <br>
 
-              <h3 id="interaction">Interaction</h3>
-              <p>iPhone has
+              <h3 id="memory">Memory Management</h3>
+              <p>Swift memory management is handled automatically, and you will usually be unaware of it. Objects come into existence when they are instantiated and go out of existence as soon as they are no longer needed. Memory management of reference type objects, however, is quite tricky under the hood. Even for the Swift user, things can occasionally go wrong in this regard. (Value types do not require the sort of complex memory management that reference types do, so no memory management issues can arise for them.)</p>
+              <p>Trouble typically arises when two class instances have references to one another. When that’s the case, you can have a <span class="emphasis"><em>retain cycle</em></span> which will result in a <span class="emphasis"><em>memory leak</em></span>, meaning that the two instances <span class="emphasis"><em>never</em></span> go out of existence. Some computer languages solve this sort of problem with a periodic “garbage collection” phase that detects retain cycles and cleans them up, but Swift doesn’t do that; you have to fend off retain cycles manually.<a id="idm320873571328" class="indexterm"></a><a id="idm320873570528" class="indexterm"></a><a id="idm320873569632" class="indexterm"></a><a id="idm320873568736" class="indexterm"></a><a id="idm320873567824" class="indexterm"></a>
               </p>
+              <p>One way to test for and observe a memory leak is to implement a class’s <code class="literal">deinit</code>. This method is called when the instance goes out of existence. If the instance never goes out of existence, <code class="literal">deinit</code> is never called. That’s a bad sign, if you were expecting that the instance <span class="emphasis"><em>should</em></span> go out of existence.<a id="idm320873562608" class="indexterm"></a></p><p>Here’s an example. First, I’ll make two class instances and watch them go out of existence:</p>
 
-              <br>
-              <h6>Gestures</h6>
-              <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
-              Web or 2) use a dependency manager like Cocoapods.</p>
-              <h6>Haptics</h6>
-              <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
-                  Web or 2) use a dependency manager like Cocoapods.</p>
-              <h6>Shake</h6>
-              <p>We can install libraries in two ways: 1) drag them into our project after downloading them from the
-                  Web or 2) use a dependency manager like Cocoapods.</p>
-
-              <br>
-
-
+              <style type="text/css">
+                  p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #000000; background-color: #ffffff}
+                  p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #d12f1b; background-color: #ffffff}
+                  p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #008400; background-color: #ffffff}
+                  span.s1 {color: #ba2da2}
+                  span.s2 {color: #000000}
+                  span.s3 {color: #3e1e81}
+                  span.s4 {text-decoration: underline}
+                  span.s5 {color: #4f8187}
+                  span.s6 {color: #31595d}
+              </style>
               <br>
 
+              <p class="p1"><span class="s1">func</span> testRetainCycle() {</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">class</span> Dog {</p>
+              <p class="p1"><span class="Apple-converted-space">        </span><span class="s1">deinit</span> {</p>
+              <p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s3">print</span><span class="s2">(</span>"farewell from Dog"<span class="s2">)</span></p>
+              <p class="p1"><span class="Apple-converted-space">        </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">class</span> Cat {</p>
+              <p class="p1"><span class="Apple-converted-space">        </span><span class="s1">deinit</span> {</p>
+              <p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s3">print</span><span class="s2">(</span>"farewell from Cat"<span class="s2">)</span></p>
+              <p class="p1"><span class="Apple-converted-space">        </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">let</span> <span class="s4">d</span> = <span class="s5">Dog</span>()</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">let</span> <span class="s4">c</span> = <span class="s5">Cat</span>()</p>
+              <p class="p1">}</p>
+              <p class="p3"><span class="s6">testRetainCycle</span><span class="s2">() </span>// farewell from Cat, farewell from Dog</p>
+<br>
+<br>
+
+              <p>When we run that code, both “farewell” messages appear in the console. We created a Dog instance and a Cat instance, but the only references to them are automatic (local) variables inside the <code class="literal">testRetainCycle</code> function. When execution of that function’s body comes to an end, all automatic variables are destroyed; that is what it means to be an automatic variable. There are no other references to our Dog and Cat instances that might make them persist, and so they are destroyed in good order.</p><p>Now I’ll change that code by giving the Dog and Cat objects references to each other:</p>
+<br>
+              <p class="p1"><span class="s1">func</span> testRetainCycle() {</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">class</span> Dog {</p>
+              <p class="p1"><span class="Apple-converted-space">        </span><span class="s1">var</span> cat : <span class="s2">Cat</span>?</p>
+              <p class="p1"><span class="Apple-converted-space">        </span><span class="s1">deinit</span> {</p>
+              <p class="p2"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s4">print</span><span class="s3">(</span>"farewell from Dog"<span class="s3">)</span></p>
+              <p class="p1"><span class="Apple-converted-space">        </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">class</span> Cat {</p>
+              <p class="p1"><span class="Apple-converted-space">        </span><span class="s1">var</span> dog : <span class="s2">Dog</span>?</p>
+              <p class="p1"><span class="Apple-converted-space">        </span><span class="s1">deinit</span> {</p>
+              <p class="p2"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s4">print</span><span class="s3">(</span>"farewell from Cat"<span class="s3">)</span></p>
+              <p class="p1"><span class="Apple-converted-space">        </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span>}</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">let</span> d = <span class="s2">Dog</span>()</p>
+              <p class="p1"><span class="Apple-converted-space">    </span><span class="s1">let</span> c = <span class="s2">Cat</span>()</p>
+              <p class="p3"><span class="s3"><span class="Apple-converted-space">    </span>d.</span><span class="s2">cat</span><span class="s3"> = c </span>// create a...</p>
+              <p class="p3"><span class="s3"><span class="Apple-converted-space">    </span>c.</span><span class="s2">dog</span><span class="s3"> = d </span>// ...retain cycle</p>
+              <p class="p1">}</p>
+              <p class="p3"><span class="s5">testRetainCycle</span><span class="s3">() </span>// nothing in console</p>
+
+
+              <br><br>
+
+              <p>When we run that code, <span class="emphasis"><em>neither</em></span> “farewell” message appears in the console. The Dog and Cat objects have references to one another. Those are <span class="emphasis"><em>persisting</em></span> references (also called <span class="emphasis"><em>strong</em></span> references). A persisting reference sees to it that, for example, as long as our Dog has a reference to a particular Cat, that Cat will not be destroyed. That’s a good thing, and is a fundamental principle of sensible memory management. The bad thing is that the Dog and the Cat have persisting references <span class="emphasis"><em>to one another</em></span>. That’s a retain cycle! Neither the Dog instance nor the Cat instance can be destroyed, because neither of them can “go first” — it’s like Alphonse and Gaston who can never get through the door because each requires the other to precede him. The Dog can’t be destroyed first because the Cat has a persisting reference to him, and the Cat can’t be destroyed first because the Dog has a persisting reference to him.<a id="idm320873554768" class="indexterm"></a><a id="idm320873552208" class="indexterm"></a><a id="idm320873551296" class="indexterm"></a><a id="idm320873550384" class="indexterm"></a></p><p>These objects are therefore now <span class="emphasis"><em>leaking</em></span>. Our code is over; both <code class="literal">d</code> and <code class="literal">c</code> are gone. There are <span class="emphasis"><em>no</em></span> further references to either of these objects; neither object can ever be referred to again. No code can mention them; no code can reach them. But they live on, floating, useless, and taking up memory.</p>
+              <br>
+              <hr>
+              <a style="font-size:10px;" href="http://www.apeth.com/swiftBook/ch05.html#_memory_management">-
+                  http://www.apeth.com/swiftBook/ch05.html#_memory_management</a><br>
+              <br>
               <h3 id="summary">Summary</h3>
               <ul>
-                <li>MVC is the design strategy for iOS - beware of Massive View Controllers </li>
-                <li>Third Party Libraries are very useful and can save a developer a lot of time and work</li>
-                <li>Firebase is a platform with realtime database, user authentication and hosting used by many
-                    developers</li>
+                <li>The class for dealing with images in iOS is UIImage</li>
+                <li>Use Map Kit to integrate maps into your app</li>
+                  <li>Finding a user's location requires an Entitlement</li>
               </ul>
               <br>
           </div>
