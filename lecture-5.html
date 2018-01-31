@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>6s183 - Lecture 5 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/the.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">6.s183</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:6s183-staff@mit.edu" >Contact Instructors</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <main role="main" id="app" class="container">
+      <div class="row">
+          <div class="col-sm-2 d-none d-lg-block">
+              <div class="affix">
+                  <p><strong>Outline</strong></p>
+                  <hr>
+                  <p><a href="#ext">Extensions</a></p>
+                  <p><a href="#thread">Multithreading in iOS</a></p>
+                  <p><a href="#summary">Summary</a></p>
+                </div>
+          </div>
+          <div class="col-sm-10">
+
+
+              <h2>5. Extensions and Threading</h2>
+              <div class="bd-callout bd-callout-danger">
+                  <h6>Final Project Due Friday</h6>
+                  <p>It's time to <i>really</i> get coding on your final project! Continue reaching out over email
+                      or on Piazza for any help you need.</p>
+              </div>
+
+              <br>
+              <h3 id="ext">Extensions</h3>
+              <p>An extension is a way of injecting your own code into an object type that has already been declared elsewhere; you are extending an existing object type. You can extend your own object types; you can also extend one of Swift's object types or one of Cocoa's object types, in which case you are adding functionality to a type that doesn't belong to you!</p>
+              <p>Extension declaration can take place only at the top level of a file. To declare an extension, put the keyword extension followed by the name of an existing object type, then optionally a colon plus the names of any protocols you want to add to the list of those adopted by this type, and finally curly braces containing the usual things that go inside an object type declaration — with the following restrictions:</p>
+              <ul>
+                  <li>An extension can't override an existing member (but it can overload an existing method).</li>
+                  <li>An extension can't declare a stored property (but it can declare a computed property).</li>
+                  <li>An extension of a class can't declare a designated initializer or a deinitializer (but it can
+                      declare a convenience initializer).</li>
+              </ul>
+
+
+              <hr>
+              <a style="font-size:10px;" href="http://www.apeth.com/swiftBook/ch04.html#SECextensions">-
+                  http://www.apeth.com/swiftBook/ch04.html#SECextensions</a><br>
+                <br>
+                <br>
+
+              <h3 id="thread">Multithreading in iOS</h3>
+              <p>You know how the iPhone has a CPU, its central processing unit. Technically, a CPU can only perform one operation at a time – once per clock cycle. Multithreading allows the processor to create concurrent threads it can switch between, so multiple tasks can be executed at the same time.
+
+                  It appears as if the two threads are executed at the same time, because the processor switches rapidly between executing them. As a smartphone or desktop user, you don’t notice the switches because they occur so rapidly.</p>
+
+              <p>A thread is, simply put, a subprocess of your app that can execute even while other subprocesses are also executing. Such simultaneous execution is called concurrency. The iOS frameworks use threads all the time; if they didn’t, your app would be less responsive to the user — perhaps even completely unresponsive. The genius of the frameworks, though, is that, for the most part, they use threads precisely so that you don’t have to.</p>
+              <p>For example, suppose your app is downloading something from the network. This download doesn’t
+                  happen all by itself; somewhere, someone is running code that interacts with the network and
+                  obtains data. Similarly, how does Core Motion work? The data from the sensors is being gathered and
+                  processed constantly, with extra calculations to separate gravity from user-induced acceleration
+                  and to account for bias and scaling in the gyroscope. Yet none of that prevents your code from
+                  running; none of that prevents the user from tapping and swiping things in your interface. That’s
+                  concurrency in action. For detailed information about the topics introduced in this reading, read
+                  <a
+                          href="https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html">Apple’s Concurrency Programming Guide</a> and <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html">Threading Programming Guide</a>.
+
+              </p>
+
+              <h5>The Main Thread</h5>
+              <p>You are always using some thread. All your code must run somewhere; “somewhere” means a thread. When
+                  code calls a method, that method normally runs on the same thread as the code that called it. Your code is called through events; those events normally call your code on the main thread. The main thread has certain special properties:</p>
+              <p><strong>The main thread automatically has a run loop.</strong><br>
+                  A run loop is a recipient of events. It is how your code is notified that something is happening; without a run loop, a thread can’t receive events. Cocoa events normally arrive on the main thread’s run loop; that’s why your code, called by those events, executes on the main thread.
+
+                  </p>
+              <p><strong>The main thread is the interface thread.</strong><br>
+                  When the user interacts with the interface, those interactions are reported as events — on the main thread. When your code interacts with the interface, it too must do so on the main thread. Of course that will normally happen automatically, because your code normally runs on the main thread.</p>
+
+              <h5>Grand Central Dispatch</h5>
+              <a>Grand Central Dispatch (GCD) is a low-level API for managing concurrent operations. (Yes, this is a
+                  reference to Grand Central Station in NYC.) GCD can help
+                  you improve your app’s responsiveness by defering computationally expensive tasks to the
+                  background. It’s an easier concurrency model to work with than locks and threads. GCD was recently
+                  updated for Swift - check out the latest in <a href="https://developer.apple.com/videos/play/wwdc2017/706/">this WWDC video from Apple</a>.
+
+              </p>
+              <br>
+
+              <hr>
+              <a style="font-size:10px;" href="http://www.apeth.com/iOSBook/ch38.html">-
+                  http://www.apeth.com/iOSBook/ch38.html</a><br>
+              <br>
+              <h3 id="summary">Summary</h3>
+              <ul>
+                <li>Extensions are powerful - they let you add onto existing classes and protocols</li>
+                <li>Multithreading on iOS gets handled automatically - to a degree</li>
+                  <li>UI updates live on the Main Thread</li>
+                  <li>Grand Central Dispatch is used for putting processes on various threads</li>
+              </ul>
+              <br>
+          </div>
+      </div>
+      <br>
+      <br>
+
+   
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+</body>
+</html>
